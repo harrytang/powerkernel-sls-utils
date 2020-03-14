@@ -1,6 +1,6 @@
 {
   "name": "@powerkernel/sls-utils",
-  "version": "0.1.7",
+  "version": "0.0.0",
   "main": "src/",
   "scripts": {
     "publish": "git push origin --tags && git push origin",
