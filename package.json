@@ -1,0 +1,45 @@
+{
+  "name": "@powerkernel/sls-utils",
+  "version": "0.1.7",
+  "main": "src/",
+  "scripts": {
+    "publish": "git push origin --tags && git push origin",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "release:pre": "npm version prerelease && npm publish --tag pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "testRegex": "/src/.*\\.test\\.js$",
+    "collectCoverage": true
+  },
+  "keywords": [
+    "power",
+    "utils",
+    "serverless"
+  ],
+  "author": "Harry Tang <harry@powerkernel.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:powerkernel/sls-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/powerkernel/sls-utils/issues"
+  },
+  "homepage": "https://github.com/powerkernel/sls-utils",
+  "description": "Power Kernel utils for serverlesss",
+  "devDependencies": {
+    "auto-changelog": "^1.16.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0"
+  },
+  "dependencies": {}
+}
