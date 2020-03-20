@@ -1,3 +1,8 @@
+
+.DS_Store
+
+# TypeScript compiled files
+lib
 # Coverage directory used by tools like istanbul
 coverage
 
@@ -16,4 +21,3 @@ env.yml
 
 # Jetbrains IDEs
 .idea
-.DS_Store

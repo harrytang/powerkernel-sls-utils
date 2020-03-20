@@ -5,6 +5,6 @@
  * @Last Modified time: 2020-03-14 16:45:40
  */
 
-const response = require('./response');
+import response from "./response";
 
-module.exports = { response };
+export { response };

@@ -1,22 +1,29 @@
 {
   "name": "@powerkernel/sls-utils",
   "version": "1.0.0",
-  "main": "src/",
+  "main": "lib/",
+  "types": "lib/",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "publish": "git push origin --tags && git push origin",
+    "lint": "eslint . --ext .ts --fix",
+    "build": "shx rm -rf lib/ && tsc",
+    "test": "jest",
+    "push": "git push origin --tags && git push origin",
     "version": "auto-changelog -p && git add CHANGELOG.md",
-    "release:pre": "npm version prerelease && npm publish --tag pre",
-    "release:patch": "npm version patch && npm publish",
-    "release:minor": "npm version minor && npm publish",
-    "release:major": "npm version major && npm publish",
-    "test": "jest"
+    "release:patch": "npm version patch && npm run gitpush",
+    "release:minor": "npm version minor && npm run gitpush",
+    "release:major": "npm version major && npm run gitpush",
+    "gitpush": "git push origin --tags && git push origin"
   },
   "publishConfig": {
     "access": "public"
   },
   "jest": {
-    "testRegex": "/src/.*\\.test\\.js$",
-    "collectCoverage": true
+    "testRegex": "/test/.*\\.test\\.ts$",
+    "collectCoverage": true,
+    "preset": "ts-jest"
   },
   "keywords": [
     "power",
@@ -35,11 +42,18 @@
   "homepage": "https://github.com/powerkernel/sls-utils",
   "description": "Power Kernel utils for serverlesss",
   "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "auto-changelog": "^1.16.2",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "jest": "^25.1.0"
+    "eslint-config-prettier": "^6.10.0",
+    "jest": "^25.1.0",
+    "shx": "^0.3.2",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.7.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {}
 }
